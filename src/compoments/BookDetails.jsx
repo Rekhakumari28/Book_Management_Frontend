@@ -14,7 +14,7 @@ const BookDetails = () => {
    },[])
 
    const bookData = bookId && books && books.find(book=> book._id === bookId.bookId)
-  
+  console.log(bookData)
   return (
     <>
     <Header/>
@@ -24,7 +24,7 @@ const BookDetails = () => {
     <div className='row'>
       
       <div className='col-md-7 border rounded p-3'>
-        <h5>{bookData?.bookName}</h5>
+        <h5>{bookData?.bookName || bookData?.title}</h5>
         <p className='mb-2 mt-4'>Author: {bookData?.author}</p>
         <p className='mb-2'>Genre: {bookData?.genre}</p>
              </div>
