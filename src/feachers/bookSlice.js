@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchBooks = createAsyncThunk("books/fetcBooks", async()=>{
-    const response = await axios.get("https://book-management-backend-khaki.vercel.app/myBooks")
+    const response = await axios.get("https://book-management-backend-khaki.vercel.app/books")
     const data = response.data
     return data
 })
@@ -11,7 +11,7 @@ export const addBookAsync  = createAsyncThunk(
     "add/addBookAsync ",
     async (newBook) => {
       const response = await axios.post(
-        "https://book-management-backend-khaki.vercel.app/myBooks",
+        "https://book-management-backend-khaki.vercel.app/books",
         newBook
       );
       const data = response.data;
@@ -24,7 +24,7 @@ export const addBookAsync  = createAsyncThunk(
     "delete/deleteBookAsync",
     async (bookId) => {
       const response = await axios.delete(
-        `https://book-management-backend-khaki.vercel.app/myBooks/${bookId}`
+        `https://book-management-backend-khaki.vercel.app/books/${bookId}`
       );
       const data = response.data;
       return data;
