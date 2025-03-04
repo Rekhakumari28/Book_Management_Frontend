@@ -31,7 +31,7 @@ export const BooksView = () => {
             </p> :  <ul className='list-group'>
         {books && books.length > 0 && books.map(book=>(
           <li className='list-group-item' key={book._id}> <Link to={`/bookDetail/${book._id}`} className='text-black text-blue-hover link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover'>
-          <span> {book.title || book.bookName} - ( Author: {book.author} ) - ( Genre: {book.genre} )</span>        
+          <span> { book.bookName} - ( Author: {book.author} ) - ( Genre: {book.genre} )</span>        
             </Link>
             <button className='btn btn-outline-danger float-end' onClick={()=>handleDelete(book._id)}>Delete</button>
             </li>

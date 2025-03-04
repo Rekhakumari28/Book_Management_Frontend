@@ -20,6 +20,16 @@ export const addBookAsync  = createAsyncThunk(
     }
   );
 
+  export const updateBookAsync = createAsyncThunk("update/updateBookAsync", async({bookId, updateBook})=>{
+    const response = await axios.put(
+        `https://book-management-backend-khaki.vercel.app/books/${bookId}`,
+        updateBook
+      );
+      const data = response.data;
+      console.log(data)
+      return data;
+  })
+
   export const deleteBookAsync = createAsyncThunk(
     "delete/deleteBookAsync",
     async (bookId) => {
@@ -64,6 +74,21 @@ export const bookSlice = createSlice({
             console.log(addedBook, "addedBook");
         })
         builder.addCase(addBookAsync.rejected , (state, action)=>{
+            state.status = "error"
+            state.error = action.error.message
+        })
+
+        //update book
+
+         builder.addCase(updateBookAsync.pending, (state)=>{
+            state.status = "Loading"
+        })
+        builder.addCase(updateBookAsync.fulfilled, (state,action)=>{
+            state.status = "Book updated successfully"
+            const updatedBook = action.payload;
+            console.log(updatedBook, "updatedBook");
+        })
+        builder.addCase(updateBookAsync.rejected , (state, action)=>{
             state.status = "error"
             state.error = action.error.message
         })
