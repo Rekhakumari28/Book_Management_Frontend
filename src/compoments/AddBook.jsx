@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Header } from "./Header";
 import { useDispatch } from "react-redux";
 import { addBookAsync } from "../feachers/bookSlice";
-import { useNavigate } from "react-router-dom";
 
 const AddBook = () => {
   const [bookName, setBookName] = useState("");
@@ -11,7 +10,7 @@ const AddBook = () => {
   const [genre, setGener] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +23,7 @@ const AddBook = () => {
     setBookName("");
     setAuthor("");
     setGener("");
-    navigate("/");
+   
   };
   return (
     <>
