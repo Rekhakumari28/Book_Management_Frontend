@@ -27,17 +27,29 @@ const BookDetails = () => {
             <h5>{bookData?.bookName}</h5>
             <p className="mb-2 mt-4">Author: {bookData?.author}</p>
             <p className="mb-2">Genre: {bookData?.genre}</p>
-            <p className="mb-2">Language: {bookData?.language}</p>
-            <p className="mb-2">Rating: {bookData?.rating}</p>
-            <p className="mb-2">
-              Publish Year: {bookData?.publishYear}{" "}
-             
-            </p> <Link
-                className="bg-warning text-emphesis-warning p-2 rounded mt-3 "
-                to={`/addBook/${bookData._id}`}
-              >
-                Edit Details
-              </Link>
+            {bookData?.language ? (
+              <p className="mb-2">Language: {bookData?.language}</p>
+            ) : (
+              ""
+            )}
+
+            {bookData?.rating ? (
+              <p className="mb-2">Rating: {bookData?.rating}</p>
+            ) : (
+              ""
+            )}
+
+            {bookData?.publishYear ? (
+              <p className="mb-2">Publish Year: {bookData?.publishYear} </p>
+            ) : (
+              ""
+            )}
+            <Link
+              className="bg-warning text-emphesis-warning p-2 rounded mt-3 "
+              to={`/addBook/${bookData._id}`}
+            >
+              Edit Details
+            </Link>
           </div>
         </div>
       </div>
