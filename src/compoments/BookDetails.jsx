@@ -24,15 +24,10 @@ const BookDetails = () => {
     <div className='row'>
       
       <div className='col-md-7 border rounded p-3'>
-        <h5>{bookData?.title}</h5>
+        <h5>{bookData?.bookName}</h5>
         <p className='mb-2 mt-4'>Author: {bookData?.author}</p>
-        <p className='mb-2'>Genre: {bookData?.genre.join(", ")}</p>
-        <p className='mb-2 '>Published Year: {bookData?.publishedYear}</p>
-        <p className='mb-2 '>Rating: {bookData?.rating}</p>
-        <p className='mb-2 '>Summary: {bookData?.summary}</p>
-        <p className='mb-2 '>Country: {bookData?.country}</p>
-
-      </div>
+        <p className='mb-2'>Genre: {bookData?.genre}</p>
+             </div>
     </div>
 
     </div>
